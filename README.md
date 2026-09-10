@@ -1,0 +1,5 @@
+# Erwin Regalado — Portfolio
+
+A personal portfolio site for Erwin Regalado, BSIS student, built with HTML and Bootstrap and published on GitHub Pages.
+
+**Live site:** https://erwinregalado.github.io/portfolio *(replace with your actual GitHub Pages URL once deployed)*
