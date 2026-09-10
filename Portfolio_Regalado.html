@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Erwin Regalado — Portfolio</title>
+
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons (for footer/social icons) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy:#16243D;
+    --ink:#20242B;
+    --paper:#F6F4EF;
+    --amber:#E3A344;
+    --slate:#5C7A99;
+    --line:#D8D2C4;
+  }
+
+  body{
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    background-color:var(--paper);
+  }
+
+  h1, h2, h3, .brand{
+    font-family:'Fraunces', serif;
+  }
+
+  /* ---- Navbar ---- */
+  .navbar-portfolio{
+    background-color:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .navbar-portfolio .brand{
+    font-size:1.35rem;
+    font-weight:600;
+    color:var(--navy);
+  }
+  .navbar-portfolio .nav-link{
+    color:var(--ink);
+    font-weight:500;
+    margin-left:0.5rem;
+    position:relative;
+  }
+  .navbar-portfolio .nav-link:hover{
+    color:var(--navy);
+  }
+
+  /* ---- Hero / About ---- */
+  .hero{
+    background-color:var(--navy);
+    color:var(--paper);
+    background-image:
+      linear-gradient(rgba(22,36,61,0.94), rgba(22,36,61,0.94)),
+      repeating-linear-gradient(0deg, rgba(227,163,68,0.08) 0 1px, transparent 1px 48px),
+      repeating-linear-gradient(90deg, rgba(227,163,68,0.08) 0 1px, transparent 1px 48px);
+    border-bottom:4px solid var(--amber);
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 6vw, 4rem);
+    font-weight:700;
+    line-height:1.05;
+  }
+  .hero .role{
+    color:var(--amber);
+    font-weight:500;
+    font-size:1.1rem;
+    letter-spacing:0.02em;
+  }
+  .hero .bio{
+    max-width:60ch;
+    color:#DDE3EC;
+    line-height:1.7;
+  }
+  .avatar-frame{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    border:3px solid var(--amber);
+    object-fit:cover;
+  }
+
+  /* ---- Section rhythm ---- */
+  section{
+    scroll-margin-top:80px;
+  }
+  .section-title{
+    font-weight:600;
+    color:var(--navy);
+    margin-bottom:0.25rem;
+  }
+  .section-kicker{
+    color:var(--slate);
+    font-size:0.95rem;
+    margin-bottom:1.75rem;
+  }
+
+  /* ---- Skills ---- */
+  .skill-group{
+    border:1px solid var(--line);
+    background-color:#fff;
+    padding:1.5rem;
+    height:100%;
+  }
+  .skill-group h3{
+    font-size:1.05rem;
+    color:var(--navy);
+    margin-bottom:0.85rem;
+  }
+  .badge-skill{
+    background-color:var(--paper);
+    color:var(--navy);
+    border:1px solid var(--line);
+    font-weight:500;
+    font-size:0.85rem;
+    padding:0.45em 0.8em;
+    margin:0 0.35rem 0.35rem 0;
+  }
+
+  /* ---- Projects ---- */
+  .project-card{
+    border:1px solid var(--line);
+    background-color:#fff;
+    height:100%;
+  }
+  .project-card .card-title{
+    color:var(--navy);
+    font-family:'Fraunces', serif;
+    font-weight:600;
+  }
+  .project-card .btn{
+    border-color:var(--navy);
+    color:var(--navy);
+  }
+  .project-card .btn:hover{
+    background-color:var(--navy);
+    color:#fff;
+  }
+
+  /* ---- Contact ---- */
+  .contact-panel{
+    border:1px solid var(--line);
+    background-color:#fff;
+    padding:2rem;
+  }
+  .btn-amber{
+    background-color:var(--amber);
+    color:var(--navy);
+    font-weight:600;
+    border:none;
+  }
+  .btn-amber:hover{
+    background-color:#c98b2e;
+    color:#fff;
+  }
+  .form-control:focus{
+    border-color:var(--slate);
+    box-shadow:0 0 0 0.2rem rgba(92,122,153,0.2);
+  }
+
+  /* ---- Footer ---- */
+  footer{
+    background-color:var(--navy);
+    color:#C9D2DE;
+  }
+  footer a{
+    color:#C9D2DE;
+    font-size:1.3rem;
+    margin:0 0.6rem;
+  }
+  footer a:hover{
+    color:var(--amber);
+  }
+
+  section:nth-of-type(even){
+    background-color:#EFEBE1;
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-md navbar-portfolio sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand brand" href="#top">Erwin Regalado</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ABOUT -->
+  <section id="about" class="hero py-5">
+    <div class="container py-5">
+      <div class="row align-items-center g-5">
+        <div class="col-md-8">
+          <p class="role mb-2">BSIS Student — Information Systems</p>
+          <h1 class="mb-3">Hi, I'm Erwin.</h1>
+          <p class="bio">
+            I'm a college student taking up Bachelor of Science in Information Systems.
+            I like figuring out how businesses actually run, and then building the
+            software and databases that make those processes easier. Somewhere
+            between spreadsheets, SQL, and a bit of front-end code, that's where I
+            work best. This page is a running record of what I'm learning and building
+            along the way.
+          </p>
+        </div>
+        <div class="col-md-4 text-center">
+          <img src="https://placehold.co/360x360/16243D/E3A344?text=ER&font=raleway"
+               alt="Placeholder profile portrait of Erwin Regalado, BSIS student"
+               class="avatar-frame">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="py-5">
+    <div class="container py-4">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-kicker">What I bring to the table, grouped by the kind of work it supports.</p>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="skill-group">
+            <h3>Programming &amp; Web</h3>
+            <span class="badge badge-skill">HTML</span>
+            <span class="badge badge-skill">CSS</span>
+            <span class="badge badge-skill">JavaScript</span>
+            <span class="badge badge-skill">Bootstrap</span>
+            <span class="badge badge-skill">Python</span>
+            <span class="badge badge-skill">Java</span>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="skill-group">
+            <h3>Database Management</h3>
+            <span class="badge badge-skill">MySQL</span>
+            <span class="badge badge-skill">SQL Server</span>
+            <span class="badge badge-skill">Query Writing</span>
+            <span class="badge badge-skill">ER Diagrams</span>
+            <span class="badge badge-skill">Normalization</span>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="skill-group">
+            <h3>Systems Analysis &amp; Design</h3>
+            <span class="badge badge-skill">Process Mapping</span>
+            <span class="badge badge-skill">DFDs</span>
+            <span class="badge badge-skill">Flowcharts</span>
+            <span class="badge badge-skill">Requirements Gathering</span>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="skill-group">
+            <h3>Business &amp; Productivity Tools</h3>
+            <span class="badge badge-skill">MS Excel</span>
+            <span class="badge badge-skill">MS Office</span>
+            <span class="badge badge-skill">Google Workspace</span>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="skill-group">
+            <h3>Project &amp; Systems Concepts</h3>
+            <span class="badge badge-skill">Project Management Basics</span>
+            <span class="badge badge-skill">ERP Concepts</span>
+            <span class="badge badge-skill">IT Service Management</span>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="skill-group">
+            <h3>Working With People</h3>
+            <span class="badge badge-skill">Problem-Solving</span>
+            <span class="badge badge-skill">Adaptability</span>
+            <span class="badge badge-skill">Communication</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-5">
+    <div class="container py-4">
+      <h2 class="section-title">Projects &amp; Accomplishments</h2>
+      <p class="section-kicker">A few things I've built or completed so far. Replace the links below with your own repos or files.</p>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card project-card">
+            <div class="card-body d-flex flex-column">
+              <h3 class="card-title h5">Inventory Management System</h3>
+              <p class="card-text">
+                A desktop app for tracking stock levels and generating simple sales
+                reports, built as a database design project.
+              </p>
+              <a href="#" target="_blank" rel="noopener" class="btn btn-outline-primary mt-auto">View Repo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card project-card">
+            <div class="card-body d-flex flex-column">
+              <h3 class="card-title h5">Student Records Database</h3>
+              <p class="card-text">
+                Designed and normalized a relational database for managing student
+                enrollment and grades, with sample queries and an ER diagram.
+              </p>
+              <a href="#" target="_blank" rel="noopener" class="btn btn-outline-primary mt-auto">View Project</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card project-card">
+            <div class="card-body d-flex flex-column">
+              <h3 class="card-title h5">This Portfolio Site</h3>
+              <p class="card-text">
+                The page you're looking at right now — built with HTML, Bootstrap,
+                and a bit of custom CSS, then published on GitHub Pages.
+              </p>
+              <a href="#" target="_blank" rel="noopener" class="btn btn-outline-primary mt-auto">View Source</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-5">
+    <div class="container py-4">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-kicker">Feel free to reach out — I'm open to opportunities, group projects, or just a chat about IS.</p>
+
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="contact-panel">
+            <form>
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Your name" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="4" placeholder="Let's talk..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-amber">Send Message</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="contact-panel h-100 d-flex flex-column justify-content-center">
+            <h3 class="h5 mb-3" style="color:var(--navy)">Find me online</h3>
+            <p class="mb-3">The fastest way to reach me is LinkedIn — I check it more often than email.</p>
+            <a href="https://www.linkedin.com/in/erwin-regalado" target="_blank" rel="noopener" class="btn btn-outline-primary">
+              <i class="bi bi-linkedin me-1"></i> Connect on LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="py-4">
+  <div class="container text-center">
+    <div class="mb-2">
+      <a href="https://www.linkedin.com/in/erwin-regalado" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/erwinregalado" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+      <a href="mailto:erwin.regalado@example.com" aria-label="Email"><i class="bi bi-envelope"></i></a>
+    </div>
+    <p class="mb-0 small">&copy; 2026 Erwin Regalado. Built with Bootstrap, published on GitHub Pages.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
